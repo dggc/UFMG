@@ -9,7 +9,7 @@ all:
 	pdflatex ${FILE}
 
 clean: 
-	rm -f *.aux *.toc *.log *.dvi
+	rm -f *.aux *.toc *.log *.dvi *.bbl *.blg *.bak
 
 cleanall: clean
 	rm -f ${FILE}.pdf
