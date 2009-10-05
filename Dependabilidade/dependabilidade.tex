@@ -1,32 +1,262 @@
-\documentclass[a4paper, 12pt]{article}
-\usepackage[brazil]{babel}
-\usepackage[utf8]{inputenc}
+\documentclass[a4paper,12pt]{report}
 \usepackage{graphicx}
+\usepackage[brazil]{babel}
+\usepackage{amsmath,amsfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+
+% Pacotes para tabelas
+\usepackage{array,color,colortbl}
+\newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
+\definecolor{tcA}{rgb}{0.625,0.625,0.6406}
+
+%Config do pacote listings
+%usado para incluir codigo fonte
+\lstset{numbers=left,
+stepnumber=5,
+firstnumber=1,
+numberstyle=\tiny,
+extendedchars=true,
+breaklines=true,
+frame=tb,
+basicstyle=\footnotesize,
+stringstyle=\ttfamily,
+tabsize=3,
+showstringspaces=false
+}
+
+% Espa�amento de caracteres as margens
+\setlength{\textwidth}{16 cm}
+\setlength{\textheight}{22 cm}
+
+\evensidemargin 0 cm
+\oddsidemargin  0 cm
+\topmargin      0 cm
+
 \usepackage{indentfirst}
-\usepackage{alltt}
-\usepackage{color}
-\setlength{\textwidth}{16cm}
-\setlength{\textheight}{23,5cm}
-\evensidemargin 0cm
-\oddsidemargin 0cm
-\topmargin 0cm
 
-\title{Especificação da Ferramenta BuzzMap}
+% ========= Estilos dos capitulos =============
+	\makeatletter
+	\def\thickhrulefill{\leavevmode \leaders \hrule height 1ex \kern \z@}
+	\def\@makechapterhead#1{%
+		\reset@font
+		\vspace*{-3.50cm}
+		\hspace*{-.1cm}
+		\noindent
 
-\author{\textbf{Aluno:} Daniel Galinkin da Gama Cerqueira \\
-        \textbf{Aluno:} Luiz Felipe Mendes \\ 
-        \textbf{Aluno:} Victor Josué de C. dos G. di Salles e Ferreira \\ 
-        \textbf{Curso:} Ciência da Computação
-        \textbf{Disciplina:} Tópicos em Dependabilidade   
-       }
+		\begin{center}
+		\begin{tabular}{cc}
+			\mc{1}{>{\columncolor{tcA}}c}{\color{white}\scshape \strut \Large \bf{Parte}} &
+			\mc{1}{>{\columncolor{black}}c}{\color{white} \LARGE \bfseries \strut \thechapter }\\
+                       % \mc{1}{>{\columncolor{tcA}}c}{\color{white}\scshape \strut \LARGE \  } \\
+		\end{tabular}
+		\end{center}
+
+		\noindent\includegraphics[width=10.5cm ,height=.15cm ]{Figuras/b.jpg}
+
+		\begin{center}
+			\vspace{-.70cm} \Huge \bfseries #1
+		\end{center}
+
+		\vspace{-.60cm}
+		\hspace{4.310cm}
+		\includegraphics[width=10.5cm ,height=.15cm]{Figuras/ib.jpg}
+		\vspace*{.0cm}
+	}
+	\def\@makeschapterhead#1{%
+		\reset@font
+		\vspace*{-3.00cm}
+		\hspace{-.9cm}
+		\noindent
+		\includegraphics[width=10.5cm ,height=.15cm]{Figuras/b.jpg}
+
+		\begin{center}
+			\vspace{-.70cm} \Huge \bfseries #1
+		\end{center}
+
+\vspace{-.60cm}
+		\hspace{4.310cm}
+		\includegraphics[width=10.5cm ,height=.15cm]{Figuras/ib.jpg}
+		\vspace*{.0cm}
+
+	}
+%=========== Estilo das se��es ===================
+
+\makeatletter
+\def\section{\@ifstar\unnumberedsection\numberedsection}
+\def\numberedsection{\@ifnextchar[%]
+  \numberedsectionwithtwoarguments\numberedsectionwithoneargument}
+\def\unnumberedsection{\@ifnextchar[%]
+  \unnumberedsectionwithtwoarguments\unnumberedsectionwithoneargument}
+\def\numberedsectionwithoneargument#1{\numberedsectionwithtwoarguments[#1]{#1}}
+\def\unnumberedsectionwithoneargument#1{\unnumberedsectionwithtwoarguments[#1]{#1}}
+\def\numberedsectionwithtwoarguments[#1]#2{%
+  \ifhmode\par\fi
+  \removelastskip
+  \vskip 5ex\goodbreak
+  \refstepcounter{section}%
+  \hbox to \hsize{\vbox{%
+      \noindent
+      \leavevmode
+      \begingroup
+      \Large\bfseries
+      \noindent \includegraphics[width=10.5cm ,height=.15cm]{Figuras/b.jpg}
+      \vskip -3.95ex
+      \noindent\thesection\
+      #2\par \endgroup
+
+      }}\nobreak
+  \vskip 2ex\nobreak
+  \addcontentsline{toc}{section}{%
+    \protect\numberline{\thesection}%
+    #1}%
+  }
+\def\unnumberedsectionwithtwoarguments[#1]#2{%
+   \ifhmode\par\fi
+  \removelastskip
+  \vskip 5ex\goodbreak
+  %\refstepcounter{section}%
+  \hbox to \hsize{\vbox{%
+      \noindent
+      \leavevmode
+      \begingroup
+      \Large\bfseries
+      \noindent \includegraphics[width=10.5cm ,height=.15cm]{Figuras/b.jpg}
+      \vskip -3.95ex
+      %\noindent \  \thesection\
+      \noindent #2\par \endgroup
+
+      }}\nobreak
+  \vskip 2ex\nobreak
+    %\addcontentsline{toc}{section}{%
+    %\protect\numberline{\thesection}%
+    %#1}%
+}
+\makeatother
+
+%========= Estilo subsection ====================
+\makeatletter
+\def\subsubsection*{\@ifstar\unnumberedsubsection\numberedsubsection}
+\def\numberedsubsection{\@ifnextchar[%]
+  \numberedsubsectionwithtwoarguments\numberedsubsectionwithoneargument}
+\def\unnumberedsubsection{\@ifnextchar[%]
+  \unnumberedsubsectionwithtwoarguments\unnumberedsubsectionwithoneargument}
+\def\numberedsubsectionwithoneargument#1{\numberedsubsectionwithtwoarguments[#1]
+{#1}}
+\def\unnumberedsubsectionwithoneargument#1{\unnumberedsubsectionwithtwoarguments
+[#1]{#1}}
+\def\numberedsubsectionwithtwoarguments[#1]#2{%
+  \ifhmode\par\fi
+  \removelastskip
+  \vskip 5ex\goodbreak
+  \refstepcounter{subsection}%
+  \hbox to \hsize{\vbox{
+      \noindent
+      \leavevmode
+      \begingroup
+      \bfseries
+      \noindent \thesubsection\ %
+      #2\par \endgroup
+      \vskip -1.85ex \noindent \includegraphics[width=7cm,height=.15cm
+]{Figuras/b.jpg}
+
+
+      }}\nobreak
+  \vskip 2ex\nobreak
+  \addcontentsline{toc}{subsection}{
+    \protect\numberline{\thesubsection}%
+    #1}%
+  }
+\def\unnumberedsubsectionwithtwoarguments[#1]#2{%
+   \ifhmode\par\fi
+  \removelastskip
+  \vskip 5ex\goodbreak
+  %\refstepcounter{subsection}%
+  \hbox to \hsize{\vbox{
+      \noindent
+      \leavevmode
+      \begingroup
+      \bfseries
+      \noindent %\thesubsection\ %
+      #2\par \endgroup
+      \vskip -1.85ex \noindent \includegraphics[width=7cm,height=.15cm
+]{Figuras/b.jpg}
+
+
+      }}\nobreak
+  \vskip 2ex\nobreak
+  %\addcontentsline{toc}{subsection}{
+    %\protect\numberline{\thesubsection}%
+    %#1}%
+
+  }
+\makeatother
 
 \begin{document}
 
-\begin{titlepage}
-\maketitle
-\thispagestyle{empty}
-\end{titlepage}
-\pagebreak
+% ================ Come�o da capa ===================
+	\begin{titlepage}
+
+		\begin{center}
+			\begin{figure}[htb]
+			\begin{center}
+
+\noindent\hspace*{-.12cm}\includegraphics[scale=.6]{Figuras/dcc.jpg}
+				\noindent\hspace*{12.3 cm}\includegraphics[scale
+= 0.6]{Figuras/icex.jpg}
+			\end{center}
+			\end{figure}
+
+		\vspace*{-2.45cm}
+
+		\large{
+			\hspace{-.5cm}UNIVERSIDADE FEDERAL DE MINAS GERAIS -
+UFMG\\
+			\hspace{-.5cm}INSTITUTO DE CIÊNCIAS EXATAS - ICEx\\
+			\hspace{-1cm}DEPARTAMENTO DE CIÊNCIA DA COMPUTAÇÃO \\
+
+			\hspace{-.5cm}TÓPICOS EM DEPENDABILIDADE
+		}
+
+		\vspace{4cm}
+
+		\begin{figure}[htb]
+			\begin{center}
+
+\includegraphics[scale=0.5]{Figuras/UFMGdagua.jpg}
+			\end{center}
+		\end{figure}
+
+		\vspace*{-5.15cm}
+		\LARGE{\textbf{Especificação}}
+		\par\medskip\normalfont\Large\textbf{Etapa 01
+		\linebreak}
+
+		\begin{flushleft}
+		\vspace{3cm}
+		\large{\hfill Daniel Galinkin da Gama Cerqueira}\\
+                \large{\hfill dggc@dcc.ufmg.br}\\
+		\large{\hfill Luiz Felipe Mendes}\\
+                \large{\hfill lfmendes@dcc.ufmg.br}\\
+		\large{\hfill Victor Josué de C. dos G. di Salles e Ferreira}\\
+                \large{\hfill josue@dcc.ufmg.br}\\
+		\end{flushleft}
+
+		\vspace{3cm}
+		\today
+
+	\end{center}
+	\end{titlepage}
+% =========== fim da capa ==================
+
+% ===== Configuração do texto ==============
+	\baselineskip 0.6cm
+	\setlength{\parindent}{1.0cm}
+	\medskip
+	\tableofcontents
+
+% ========== Início da documentação ==========
+
 
 \include{questao1}
 \include{questao2}
@@ -42,3 +272,4 @@
 \bibliography{dependabilidade}
 
 \end{document}
+
