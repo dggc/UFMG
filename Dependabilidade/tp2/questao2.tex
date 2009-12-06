@@ -1,0 +1,94 @@
+\section{Definição dos requisitos, atores e casos de uso}
+
+\subsection{Atores}
+\begin{description}
+    \item[Desenvolvedor] Desenvolvedores do sistema em si. Esse
+    projeto esta em constante contrução e aperfeiçoamento, logo o
+    desenvolvedor.
+
+    \item[Administrador] É um analista com maiores permissões. Além de
+    analisar, administra o projeto e os analistas.
+
+    \item[Analista] Usuário principal do sistema, faz análises de
+    conteúdo buscado na internet.
+
+    \item[Cliente] Empresa ou pessoa que contratou o serviço
+    oferecido.
+\end{description}
+
+
+\subsection{Requisitos}
+\begin{itemize}
+    \item A interface gráfica tem que ser acessível via um browser
+    pela internet.
+    \item Dado um conjunto de palavras chaves o sistema tem de ter a
+    capacidade de coletar conteúdo em diversos canais(orkut, flickr,
+            blog, twitter).
+    \item O sistema deve ter uma interface gráfica que mostra o
+    conteudo coletado.
+    \item O sistema deve ter uma interface que dá capacidade de se
+    analisar o conteúdo coletado.
+    \item O sistema deve ser capaz de gerar gráficos sobre a análise
+    feita.
+\end{itemize}
+
+\subsection{Requisitos de Dependabilidade}
+\begin{description}
+    \item[Disponibilidade do servidor] O sistema tem que ficar no ar
+    durante pelo menos 90\% do tempo durante os horários de análise -
+    8:00 as 20:00.
+    \item[Safety] O sistema deve fazer um backup do banco de dados de
+    12 em 12 horas.
+    \item[Security] O sistema deve manter dados de usuários(login e
+            senhas) protegidos.
+    \item[Security] O sistema deve ter uma divisão de privilégios,
+    sendo que algumas informações só podem ser vistas por certos
+    usuários.
+\end{description}
+ 
+
+
+\section{Casos de Uso}
+
+\begin{itemize}
+    \item Usuário $->$ loga no sistema
+
+Todo usuário, deve poder logar na ferramenta através de seu usuário e senha.
+
+
+
+    \item Analista $->$ Loga no sistema $->$ Analise um projeto
+
+O analista, entra no sistema e após escolher o projeto e o
+canal(orkut, youtube...) faz a análise  de conteúdo e salva essa
+análise no banco de dados.
+
+
+\item Analista $->$ Loga no Sistema $->$ Visualiza Gráficos
+
+O analista loga no sistema, escolhe um projeto e visualiza os gráficos do conteúdo.
+
+
+
+\item Administrador $->$ Loga no Sistema $->$ Cria um projeto 
+
+Administrador loga no sistema, e cria um projeto, com data inicial e final e palavras chaves.
+
+
+\item Administrador $->$ Loga no Sistema $->$ Adiciona analista
+
+Administrador loga no sistema, adiciona um analista e o associa a um projeto.
+
+
+
+\item Adminstrador $->$ Loga no Sistema $->$ Cria relatório
+
+Administrador loga no sistema, entra num projeto e cria um relatório e envia ao cliente.
+
+
+
+\item Cliente $->$ Loga no sistema $->$ Visualiza informações provida pelo administrador sobre um determinado projeto
+
+Cliente loga no sistema, visualiza relatório provido pelo administrador
+
+\end{itemize}
