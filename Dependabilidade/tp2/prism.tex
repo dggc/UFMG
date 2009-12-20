@@ -1,5 +1,16 @@
 \section{Modelagem analítica/formal (PRISM) do sistema}
 
+Inicialmente, as constantes de confiabilidade foram inferidos a partir
+da experiência com o programa.
+
+Para este documento, no entanto, foi realizado um estudo mais
+detalhado destas probabilidades, utilizando os logs de execução do
+programa durante os meses de agosto a setembro. As falhas e erros
+durante este período de execução, bem como o tempo em que ele
+ficou indisponível devido a algum dos componentes foram usados para
+chegar aos resultados finais, que podem ser conferidos no modelo
+PRISM em~\ref{sec:prism}.
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=1.0\textwidth]{img/Interface}
@@ -14,6 +25,8 @@
 \label{fig:anali-coletor}
 \end{figure}
 
+\subsection{Modelo PRISM}
+\label{sec:prism}
 \begin{verbatim}
 dtmc
 	const double RT = 0.97; //0.97
@@ -87,4 +100,27 @@ indisponível.
 \end{figure}
 
 \section{Avaliação crítica}
+Os modelos PRISM foram feitos de forma simplificada devido a cláusulas
+de confidencialidade no contrato do sistema Buzzmap. No entanto, ele
+dá uma visão alto-nível bastante precisa dos dois principais módulos
+do sistema, o coletor e a interface.
 
+Mais ainda, ele reflete claramente o que foi observado informalmente
+com o uso do sistema: que ambos os módulos estão bastantes sucetíveis
+a falhas, mas que a interface é menos estável que o coletor.
+
+Outro ponto notado com os dados gerados com o PRISM é que o componente
+que tem maior influência na confiabilidade dos dois módulos é
+justamente o que é comum a ambos, a encapsulação do banco de dados
+provida pelo Hibernate. Nos gráficos de análise de sensibilidade, é
+possível notar que todos os componente possuem influência linear sobre
+a dependabilidade final do sistema, e os componentes mais importantes
+são aqueles cujas retas têm maior inclinação e cujo ponto de
+interseção com a reta Y é mais alto são as de maior importância, e a
+reta representando o Hibernate possui esses dois fatores em escala
+maior.
+
+Por isso, é possível concluir que o Hibernate é o componente mais
+sensível do sistema Buzzmap. Isso indica que um esforço para aumentar
+a confiabilidade deste componente trará maiores ganhos para o sistema
+como um todo.
