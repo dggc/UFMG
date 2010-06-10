@@ -1,2 +1,16 @@
 \section{Complexidade}
 \label{sec:complexidade}
+
+Para o caso geral, encontrar a CMV de um
+grafo $G = (V, E)$ é um problema NP-Completo.
+
+Um algoritmo que encontre a CMV $C$ por busca exaustiva executa em tempo
+$2^{O(k)n^{O(1)}}$, onde $n = \left| V \right|$ e $k = \left| C
+\right|$.
+
+Uma otimização possível é utilizar a técnica de \textit{bounded search
+tree algorithm}. A ideia é utilizar um algoritmo recursivo, que a cada
+passo, escolhe um vértice e repete o processo duas vezes: uma
+considerando que o vértice entra na solução, e outra considerando que
+ele não entra. Neste caso, o tempo de execução é de
+$2^{o(k)n^{O(1)}}$.

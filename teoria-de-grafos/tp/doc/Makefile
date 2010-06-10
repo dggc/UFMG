@@ -1,3 +1,4 @@
+SHELL=/bin/bash
 TEX=tp.tex \
 		descricao.tex formulacao.tex casos-especiais.tex complexidade.tex propriedades.tex relacao.tex \
 		implementacao.tex descricao-algoritmo.tex estruturas.tex decisoes.tex \
@@ -12,11 +13,8 @@ tp.pdf: $(TEX) tp.bib
 clean:
 	rm -f *.aux *.log *.out *.pdf *.bbl *.blg *.bak *.toc
 
-check:
-	for t in $(TEX)
-		do
-		aspell -c $t -l pt-br
-	done
+check: $(TEX)
+		for tex in $(TEX); do aspell -c $$tex -l pt-br; done
 
 see: tp.pdf
 	evince tp.pdf &
