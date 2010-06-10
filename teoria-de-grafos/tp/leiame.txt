@@ -1,0 +1,25 @@
+Trabalho Prático de Aquecimento
+Aluno: Daniel Galinkin da Gama Cerqueira
+
+Instruções para Compilar/Executar:
+
+Para se compilar o aplicativo são necessários os seguintes aplicativos:
+- cmake
+- make
+
+Para se compilar o programa, deve-se realizar os seguintes passos, de
+dentro deste diretório:
+$ cd bin
+$ cmake ..
+$ make
+
+O arquivo binário gerado após a compilação é o 'bin/main/aquecimento'
+Para executá-lo, digite, de dentro da pasta bin:
+$ ./main/aquecimento -h
+
+Uma lista com os parâmetros de execução, juntamente com sua função
+será impressa em tela.
+
+O trabalho prático foi compilado e testado com sucesso na máquina
+sirius.grad do ambiente computacional do DCC.
+
