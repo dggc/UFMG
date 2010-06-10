@@ -1,0 +1,88 @@
+% ===============================
+%
+% Pacote LaTeX para Codio-Fonte
+%
+% ===============================
+%
+% Thiago Nunes Coelho Cardoso
+% thiagon@dcc.ufmg.br
+%
+% Carolina Andrade Silva Bigonha
+% carolb@dcc.ufmg.br
+%
+% ==============================
+
+\NeedsTeXFormat{LaTeX2e}
+
+\ProvidesPackage{dinossauro}
+
+\RequirePackage{alltt}
+\RequirePackage{color}
+\RequirePackage{boxedminipage}
+
+\definecolor{bg}{rgb}{0.97,0.97,0.97} 
+
+%
+% Environment de codigo margeado
+%
+ 
+\newenvironment{codigoMargem}
+{
+\begin{lrbox}{\@tempboxa}
+\begin{boxedminipage}{.93\textwidth}
+\begin{alltt}
+}
+{
+\end{alltt}
+\end{boxedminipage}
+\end{lrbox}
+\vspace{8pt}
+\colorbox{bg}{\usebox{\@tempboxa}}
+\vspace{8pt}
+}
+
+%
+% Environment de codigo sem margem
+%
+\newenvironment{codigo}
+{
+\begin{lrbox}{\@tempboxa}
+\begin{minipage}{.93\textwidth}
+\begin{alltt}
+}
+{
+\end{alltt}
+\end{minipage}
+\end{lrbox}
+\vspace{8pt}
+\colorbox{bg}{\usebox{\@tempboxa}}
+\vspace{8pt}
+}
+
+\def\fboxsep{5pt}
+    \newenvironment{myboxenv}[1] {
+    \begin{flushright}
+      \begin{boxedminipage}{0.9\textwidth}
+         \textbf{\sffamily\normalsize #1:}
+         \hspace{-5pt}
+         \begin{center}
+          \begin{minipage}{0.95\textwidth}
+             \small\slshape
+             }{
+          \end{minipage}
+         \end{center}
+      \end{boxedminipage}
+     \end{flushright}
+    }
+
+\newenvironment{nota}
+{
+    \begin{myboxenv}{
+        %\includegraphics[scale=0.5]{images/nota.eps}
+        Pseudo-algoritmo}
+}
+    {
+    \end{myboxenv}
+}
+
+

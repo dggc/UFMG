@@ -1,0 +1,57 @@
+\documentclass[a4paper,10pt,brazil]{article}
+\newcommand{\ultimamodificacao}{20 de junho de 2007}
+\pagenumbering{arabic}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{latexsym}
+\usepackage{indentfirst}
+\usepackage{epsfig}
+\usepackage{graphics}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{dinossauro}
+\newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
+\setlength{\textwidth}{16cm}
+\setlength{\textheight}{23,5cm}
+\evensidemargin 0cm
+\oddsidemargin 0cm
+\topmargin -1cm
+
+\definecolor{gray-soft}{rgb}{0.9,0.9,0.9}
+\lstset{backgroundcolor=\color{gray-soft},
+        basicstyle=\tiny,
+        frame=single,
+        language=C++}
+
+
+\newcommand{\displaypaintbox}[4][1.0]{\scalebox{#1}
+{\epsfig{file=#4,width=#2,height=#3,bbllx=0in,bblly=#3,bburx=#2,bbury=0cm,silent=}}}
+
+\title{Teoria de Grafos
+\\Trabalho Prático
+\\Heurística para o Problema da Cobertura Mínima de Vértices}
+\author{Alunos: Bruno Guedes Azevedo Viana
+\\Daniel Galinkin da Gama Cerqueira
+\\
+\\Professor: Sebastián Urrutia
+\\
+\\Departamento de Ciência da Computa\c{c}ão
+\\Universidade Federal de Minas Gerais
+\\Belo Horizonte, Minas Gerais, Brasil}
+
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\newpage
+\tableofcontents
+\newpage
+
+
+\nocite{*}
+\bibliographystyle{amsplain}
+\bibliography{tp}
+
+\end{document}
