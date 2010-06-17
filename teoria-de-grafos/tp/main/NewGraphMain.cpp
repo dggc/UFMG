@@ -83,6 +83,7 @@ int main(int argc, char** argv)
     uint32 edges = 0;
     uint32 tmp = 0;
 
+    //Lendo as opções
     while ((option = getopt(argc, argv, "a:h")) != -1)
     {
         switch(option)
@@ -111,10 +112,12 @@ int main(int argc, char** argv)
         readFileError(inputFileName);
     }
 
+    //Lendo o número de vértices
     inputFile >> n;
     graph = new UGraph(n);
     d.resize(n, 0);
 
+    //Lendo a matriz de adjacência
     for(uint32 i=0; i < n; ++i)
     {
         for(uint32 j=0; j < n; ++j)
@@ -132,15 +135,22 @@ int main(int argc, char** argv)
         }
     }
 
+    //Enquanto existirem arestas...
     while(edges > 0)
     {
         log << "Edges: " << edges << endl;
         uint32 chosen = 0;
         uint32 max = 0;
 
+        //Procurando um vértice de grau um, ou o vértice de maior
+        //grau.
         for(uint32 i=0; i<n; ++i)
         {
+            //Vértices de grau zero podem seu ignorados
             if(d[i] == 0) continue;
+
+            //Caso um vértice de grau 1 seja encontrado, o vértice
+            //adjacente a ele é escolhido.
             if(d[i] == 1)
             {
                 for(uint32 j=0; j<n; ++j)
@@ -153,6 +163,8 @@ int main(int argc, char** argv)
                 }
                 break;
             }
+
+            //Computando o vértice de maior grau
             if(d[i] > max)
             {
                 max = d[i];
@@ -162,9 +174,12 @@ int main(int argc, char** argv)
 
         log << "Pushing: " << (chosen+1) << endl;
         log << endl;
+
+        //Acrescentando o vértice escolhido à cobertura mínima de
+        //vértices.
         mvc.push_back(chosen);
 
-
+        //Removendo as arestas incidentes ao vértice escolhido.
         for(uint32 i=0; i<n; ++i)
         {
             if(edge(chosen, i, *graph).second)
@@ -177,15 +192,16 @@ int main(int argc, char** argv)
         d[chosen] = 0;
     }
 
-
+    //Ordenando o conjunto dos vértices do MVC.
     sort(mvc.begin(), mvc.end());
+
+    //Imprimindo o resultado
     cout << "1. Vertex Cover(" << mvc.size() << "):";
     for(uint32 i=0; i<mvc.size(); ++i)
     {
         cout << " " << (mvc[i]+1);
     }
     cout << endl;
-
 
 
     delete graph;

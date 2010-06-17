@@ -1,3 +1,9 @@
 \section{Estruturas de dados}
 \label{sec:estruturas}
 %LOCK: Galinkin fazendo
+
+Para a representação do grafo, foi utilizada uma matriz de adjacência,
+mais um vetor auxiliar para manter o grau de cada vértice do grafo.
+Cada vez que uma aresta é incluída na matriz, os valores das posições
+dos vértices da aresta neste vetor são incrementadas. Quando uma
+aresta é removida, esses valores são decrementados.
