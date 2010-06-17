@@ -9,6 +9,18 @@ target_link_libraries(${GRAPH_EXE}
     ${GRAPH_LIB}
     )
 
+include_directories (
+    ${GRAPH_INC}
+    )
+add_executable(normalGraph
+    NormalGraphMain
+    )
+
+target_link_libraries(normalGraph
+    ${GRAPH_LIB}
+    )
+
+
 
 include_directories (
     ${GRAPH_INC}
