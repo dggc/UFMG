@@ -2,7 +2,7 @@ include_directories (
     ${GRAPH_INC}
     )
 add_executable(${GRAPH_EXE}
-    GraphMain
+    NewGraphMain
     )
 
 target_link_libraries(${GRAPH_EXE} 
