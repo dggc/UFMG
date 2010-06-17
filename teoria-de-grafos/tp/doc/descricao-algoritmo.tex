@@ -2,6 +2,7 @@
 \label{sec:descricao-algoritmo}
 %TODO: dar uma relida
 
+\subsection{Pseudo-algoritmo}
 O algoritmo funciona de acordo com o seguinte pseudo-algoritmo:
 
 HEURÍSTICA($G = (V, E)$)
@@ -38,6 +39,7 @@ HEURÍSTICA($G = (V, E)$)
     \item Retorne $CMV$.
 \end{enumerate}
 
+\subsection{Análise de complexidade}
 Para a avaliação de custo, assumira-se que a estrutura de dados
 utilizada é uma matriz de adjacência, usando um vetor auxiliar para
 manter e atualizar os graus de incidência de cada vértice a custo
@@ -69,3 +71,12 @@ iteração.
 
 Portanto, o custo de execução deste algoritmo é de, no pior caso:
 $$E(O(V) + O(V) + O(V)) = O(VE)$$
+
+\subsection{Prova de correção}
+A cada passo, apenas os vértices que ainda têm arestas que não foram
+retiradas do grafo são considerados para serem incluídos no CMV. Mais
+ainda, a cada passo, sempre é escolhido um vértice, retirando as
+arestas incidentes a ele do grafo. Portanto, quando todas as arestas
+tiverem sido retiradas, o conjunto resultante será com certeza uma
+cobertura de vértices do grafo. Ela pode ou não ser uma cobertura
+mínima, no entanto.
