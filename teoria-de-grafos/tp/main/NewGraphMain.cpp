@@ -75,12 +75,12 @@ int main(int argc, char** argv)
     ofstream log("log.txt");
     //ofstream log("/dev/null");
 
-    UGraph *graph = NULL;
-    vector<uint32> mvc;
-    vector<uint32> d;
+    UGraph *graph = NULL; //A matriz de adjacência
+    vector<uint32> mvc; //A cobertura mínima de vértices
+    vector<uint32> d; //Vetor auxiliar para manter o grau de cada vértice.
 
-    uint32 n = 0;
-    uint32 edges = 0;
+    uint32 n = 0; //Número de vértices
+    uint32 edges = 0; //Número de arestas
     uint32 tmp = 0;
 
     //Lendo as opções
