@@ -1,0 +1,54 @@
+8
+
+dir
+95
+https://pywebgraph.svn.sourceforge.net/svnroot/pywebgraph/trunk/core/src/pygel/Exceptions
+https://pywebgraph.svn.sourceforge.net/svnroot/pywebgraph
+
+
+
+2008-03-24T22:14:05.998571Z
+88
+xaeroman
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+25de8474-8135-0410-9976-d340baf822f2
+
+__init__.py
+file
+
+
+
+
+2008-12-12T22:41:21.000000Z
+73381de70c52f2aac459b05ffcbd7195
+2007-07-31T15:42:11.877138Z
+56
+xaeroman
+has-props
+
+Exceptions.py
+file
+
+
+
+
+2008-12-12T22:41:21.000000Z
+62da8711d271e90ab2a9bdc06c591bf3
+2008-03-24T22:14:05.998571Z
+88
+xaeroman
+has-props
+

@@ -1,0 +1,5 @@
+Copyright (C) 2007 Saket Sathe
+
+The support for abstract methods in Python is based on an article written 
+by Ivo Timmermans. The original article is available at: 
+http://www.lychnis.net/index/programming/python-abstract-methods-3.lychnis

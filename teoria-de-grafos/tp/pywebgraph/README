@@ -1,0 +1,15 @@
+1) Please make sure that the file 'genwebgraph.py' is executable.
+   To make it executable use the following command:
+
+   $chmod a+x genwebgraph.py
+
+
+2) Execute './genwebgraph.py --help' for help on this tool
+
+
+3) You may choose to permanantly install the base library, 'pygel'.
+   To install 'pygel', execute as 'root':
+
+   $python setup.py install
+
+4) API reference for 'pygel' could be found on the project's website: http://pywebgraph.sourceforge.net

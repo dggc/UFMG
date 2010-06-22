@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/pywebgraph/!svn/ver/88/trunk/core/src/pygel/Graph
+END
+NumberedEdgeDirectedGraph.py
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/pywebgraph/!svn/ver/88/trunk/core/src/pygel/Graph/NumberedEdgeDirectedGraph.py
+END
+NumberedEdgeUndirectedGraph.py
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/pywebgraph/!svn/ver/88/trunk/core/src/pygel/Graph/NumberedEdgeUndirectedGraph.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/pywebgraph/!svn/ver/88/trunk/core/src/pygel/Graph/__init__.py
+END
+AbstractGraph.py
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/pywebgraph/!svn/ver/56/trunk/core/src/pygel/Graph/AbstractGraph.py
+END
