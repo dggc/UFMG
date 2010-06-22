@@ -8,6 +8,7 @@
 
 #include <boost/config.hpp>
 #include <boost/graph/adjacency_matrix.hpp>
+#include <boost/graph/graphviz.hpp>
 #include <boost/tuple/tuple.hpp>
 
 #include <types.h>
@@ -70,8 +71,10 @@ int main(int argc, char** argv)
 {
     int32 option; //Código ASCII da opção atual.
     string inputFileName = ""; //Nome do arquivo de entrada.
+    string outputGraphName = "graph.txt"; //Nome do arquivo de entrada.
 
     ifstream inputFile; //O handler do arquivo de entrada.
+    ofstream outputGraphFile; //O handler do arquivo de entrada.
     ofstream log("log.txt");
     //ofstream log("/dev/null");
 
@@ -84,12 +87,15 @@ int main(int argc, char** argv)
     uint32 tmp = 0;
 
     //Lendo as opções
-    while ((option = getopt(argc, argv, "a:h")) != -1)
+    while ((option = getopt(argc, argv, "a:g:h")) != -1)
     {
         switch(option)
         {
             case 'a':
                 inputFileName.assign(optarg);
+                break;
+            case 'g':
+                outputGraphName.assign(optarg);
                 break;
             case 'h':
                 helpMessage();
@@ -134,6 +140,9 @@ int main(int argc, char** argv)
             }
         }
     }
+    outputGraphFile.open(outputGraphName.c_str());
+    boost::write_graphviz(outputGraphFile, *graph);
+    outputGraphFile.close();
 
     //Enquanto existirem arestas...
     while(edges > 0)
