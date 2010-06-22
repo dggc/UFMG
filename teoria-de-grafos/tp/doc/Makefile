@@ -2,7 +2,8 @@ SHELL=/bin/bash
 TEX=tp.tex \
 		descricao.tex formulacao.tex casos-especiais.tex complexidade.tex propriedades.tex relacao.tex \
 		implementacao.tex descricao-algoritmo.tex estruturas.tex decisoes.tex \
-	 	resultados.tex conclusao.tex
+	 	resultados.tex experimentos-qualidade.tex experimentos-eficiencia.tex \
+		conclusao.tex
 
 tp.pdf: $(TEX) tp.bib 
 	pdflatex tp.tex
