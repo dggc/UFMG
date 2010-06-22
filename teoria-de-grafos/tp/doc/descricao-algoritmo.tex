@@ -45,32 +45,32 @@ utilizada é uma matriz de adjacência, usando um vetor auxiliar para
 manter e atualizar os graus de incidência de cada vértice a custo
 $O(1)$.
 
-O custo para se avaliar a linha~\ref{item:alone} é de $O(V)$
-operações, pois é necessário visitar cada nodo para buscar algum que
-tenha apenas uma aresta incidente.
+O custo para se avaliar a linha~\ref{item:alone} é de $\left| V
+\right|$ operações no pior caso, pois é necessário visitar cada nodo
+para buscar algum que tenha apenas uma aresta incidente.
 
-O custo para se avaliar a linha~\ref{item:find} é de $O(V)$, pois é
-preciso percorrer todos os vértices para achar aquele que é adjacente
-ao vértice escolhido.
+O custo para se avaliar a linha~\ref{item:find} é de $\left| V
+\right|$ no pior caso, pois é preciso percorrer todos os vértices para
+achar aquele que é adjacente ao vértice escolhido.
 
-O custo para se avaliar a linha~\ref{item:max} é de $O(V)$
-operações, pois é necessário visitar cada nodo para buscar o que tenha
-mais arestas incidentes.
+O custo para se avaliar a linha~\ref{item:max} é de $\left| V \right|$
+operações no pior caso, pois é necessário visitar cada nodo para
+buscar o que tenha mais arestas incidentes.
 
 No entanto, é importante lembrar que apenas uma das
 linhas~\ref{item:find} e~\ref{item:max} é executada por ciclo.
 
-O custo para se avaliar a linha~\ref{item:remove} é de $O(V)$
-operações no pior caso, pois é preciso passar por todas os vértices do
-grafo, conferindo se existe ou não uma aresta entre o nó escolhido e
-o nó sendo avaliado, e removê-la caso ela exista.
+O custo para se avaliar a linha~\ref{item:remove} é de $\left| V
+\right|$ operações no pior caso, pois é preciso passar por todos os
+vértices do grafo, conferindo se existe ou não uma aresta entre o nó
+escolhido e o nó sendo avaliado, e removê-la caso ela exista.
 
 O laço da linha~\ref{item:loop} é repetido no máximo $\left| E
 \right|$ vezes, no caso em que apenas uma aresta é retirada por
 iteração.
 
 Portanto, o custo de execução deste algoritmo é de, no pior caso:
-$$E(O(V) + O(V) + O(V)) = O(VE)$$
+$$\left| E \right| (3 \left| V \right|) = O(VE)$$
 
 \subsection{Prova de correção}
 A cada passo, apenas os vértices que ainda têm arestas que não foram
