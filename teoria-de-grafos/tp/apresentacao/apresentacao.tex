@@ -75,10 +75,10 @@ vértices de $G$, $\left| C^* \right| \leq \left| C \right| \forall C
 \frame{
 \frametitle{Definição}
 \begin{itemize}
-    \item Exemplo 1
-    \item Exemplo 2
-    \item Exemplo 3
-    \item Exemplo 4
+    \item Vários algoritmos em bioinformática, como encontrar árvores
+        filogenéticas, identificação de fenótipos e análise de dados
+        de microarranjos.
+    \item Clustering em redes sem fios.
 \end{itemize}
 }
 
@@ -274,6 +274,17 @@ então existe uma CMV $C$ tal que $v \in C$.
 }
 
 \section{Experimentos}
+\frame{
+\frametitle{Tipos de experimentos}
+Serão realizados dois tipos de experimentos para validar o algoritmo:
+\begin{description}
+    \item[Qualidade] Experimentos realizados com o intuito de ver a
+        diferença no tamanho da CMV do grafo, e da CV encontrada
+        pelo algoritmo.
+    \item[Eficiência] Experimentos realizados com o intuito de
+    averiguar o quão rápido o algoritmo realmente é.
+\end{description}
+}
 \subsection{Qualidade}
 \frame{
 \begin{itemize}
@@ -343,10 +354,56 @@ então existe uma CMV $C$ tal que $v \in C$.
 \end{figure}
 }
 
+\subsection{Eficiência}
+\frame{
+\frametitle{Preparativos}
+\begin{itemize}
+    \item Será usado o \textit{Python Web Graph
+        Generator}~\cite{cite:pythonwebgenerator} para a geração de
+        grafos aleatórios com número determinado de vértices e
+        arestas.
+
+    \item Foram executados alguns testes em uma máquina Linux, com
+        processador Intel Core 2 Duo T8100, de 2.10GHz e 3GB de
+        memória principal.
+
+    \item Qual a melhor estratégia para definir o tamanho dos grafos
+    de testes em termos de vértices e arestas?
+\end{itemize}
+}
+
+\frame{
+\frametitle{Alguns dados}
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Tamanho} & \textbf{Tempo (s)} \\
+\hline
+$V=100, E=3000$ & 0.021 \\
+\hline
+$V=200, E=12000$ & 0.037 \\
+\hline
+$V=500, E=75000$ & 0.152 \\
+\hline
+$V=1000, E=300000$ & 0.546 \\
+\hline
+\end{tabular}
+\caption{Alguns dados experimentais}
+\end{table}
+}
 
 \section{Comentários finais}
 \frame{
 \frametitle{Comentários finais}
+
+\begin{itemize}
+    \item Não encontramos uma heurística similar na literatura.
+    \item As respostas dadas pela heurística são bastante próximas do
+    ótimo.
+    \item Apesar do tempo $O(VE)$, o algoritmo parece executar
+    bastante rápido. Pelo menos para os exemplos utilizados.
+\end{itemize}
 
 
 }
