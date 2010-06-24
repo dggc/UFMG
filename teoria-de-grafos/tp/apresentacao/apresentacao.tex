@@ -57,11 +57,11 @@ vértices de $G$, $\left| C^* \right| \leq \left| C \right| \forall C
 
 \begin{figure}[htb]
 \centering
-\subfigure[Coberturas não mínima de vértices]{
+\subfigure[Coberturas não mínimas de vértices]{
 \includegraphics[width=0.4\textwidth]{../doc/img/vertex-cover.png}
 \label{fig:cv}
 }
-\subfigure[Coberturas mínima de vértices]{
+\subfigure[Coberturas mínimas de vértices]{
 \includegraphics[width=0.4\textwidth]{../doc/img/minimum-vertex-cover.png}
 \label{fig:cmv}
 }
@@ -102,8 +102,8 @@ $2^{o(k)n^{O(1)}}$.
 \section{Algoritmos conhecidos}
 \subsection{Algoritmos aproximativos}
 \frame{
-\frametitle{Algoritmo I}
-\begin{block}{Pseudo-algoritmo}
+\frametitle{Primeiro algoritmo}
+\begin{block}{primeiroAlgoritmo($G$)}
 \begin{enumerate}
     \item $C \rightarrow \emptyset$
     \item while $E \ne \emptyset$
@@ -124,7 +124,7 @@ $2^{o(k)n^{O(1)}}$.
 }
 
 \frame{
-\frametitle{Algoritmo II}
+\frametitle{Segundo algoritmo}
 \begin{itemize}
     \item Existem algoritmos com um fator de aproximação ligeiramente
         melhores.
@@ -134,7 +134,49 @@ $2^{o(k)n^{O(1)}}$.
 \end{itemize}
 }
 
+\subsection{Heurísticas}
+\frame[allowframebreaks]{
+\frametitle{Algoritmo guloso}
+\begin{block}{Guloso($G$)}
+\begin{enumerate}
+    \item $C \rightarrow \emptyset$
+    \item while $E \ne \emptyset$
+    \begin{enumerate}
+        \item Seja $v \in G : d[v] \ge d[u], \forall u \in V$
+        \item $C = C \cup {v}$
+        \item $E \rightarrow E \backslash \{e \in E : v \in E\}$
+    \end{enumerate}
+\end{enumerate}
+\end{block}
 
+O algoritmo acima parte do príncipio de escolher os vértices que têm
+mais arestas incidentes a ele para o CMV, de forma a cobrir o mais
+número de arestas com o menor número de vértices.
+
+\framebreak
+
+No entanto, este algoritmo falha mais vezes que a intuição indica.
+
+\begin{figure}[htb]
+\centering
+\subfigure[Caso ótimo]{
+\includegraphics[width=0.4\textwidth]{../doc/img/optimal.png}
+\label{fig:optimalguloso}
+}
+\subfigure[Solução encontrada]{
+\includegraphics[width=0.4\textwidth]{../doc/img/wrong.png}
+\label{fig:wrongguloso}
+}
+\caption{Exemplo de caso em que o algoritmo guloso falha}
+\label{fig:guloso}
+\end{figure}
+}
+
+\section{Heurística proposta}
+\subsection{Príncipio}
+\frame{
+\frametitle{Príncipio}
+}
 
     
     \section{Comentários finais}
