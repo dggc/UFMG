@@ -131,7 +131,8 @@ $2^{o(k)n^{O(1)}}$.
         melhores.
     \item Um algoritmo, usando técnicas avançadas e programação
     linear, é conhecido~\cite{cite:complex}. Seu fator de aproximação
-    é de $2 - \Theta(\dfrac{1}{\sqrt{\log V}})$.
+    é de $2 - \Theta(\dfrac{1}{\sqrt{\log V}})$, e é o melhor fator
+    encontrado na literatura.
 \end{itemize}
 }
 
@@ -219,7 +220,6 @@ então existe uma CMV $C$ tal que $v \in C$.
 
 
 \subsection{Execução passo a passo}
-\subsubsection{Exemplo 1}
 \frame[allowframebreaks]{
 \frametitle{Passo}
 
@@ -273,32 +273,38 @@ então existe uma CMV $C$ tal que $v \in C$.
 \end{figure}
 }
 
+\section{Experimentos}
+\subsection{Qualidade}
+\frame{
+\begin{itemize}
+    \item Foram usados 20 grafos da literatura como entrada para
+    algoritmo, a fim de ter uma ideia da qualidade das CMVs geradas.
+    \item Para cada grafo, serão apresentados três valores:
+    \begin{description}
+        \item[$n$] O número de vértices do grafo.
+        \item[$k$] O tamanho da CMV.
+        \item[$k'$] O tamanho da CV encontrada.
+    \end{description}
+\end{itemize}
+}
 
-    
-    \section{Comentários finais}
-    \frame{
+\frame{
+\frametitle{Grafo de Petersen}
 
-        \frametitle{Comentários finais}
+}
 
-        \begin{itemize}
-            \item A princípio, pode parecer que poucas aplicações se
-                beneficiariam da arquitetura proposta pela Google.
 
-            \item No entanto, aplicações que se focam na relação
-            performance/preço e que não tenham estado (permitindo a
-            replicação dos servidores) podem se beneficiar com o uso
-            de uma arquitetura similar.
 
-            \item Alguns exemplos incluem: servidores Web de grande
-            volume e servidores de aplicações computacionalmente
-            intensas, mas sem estados.
-        \end{itemize}
+\section{Comentários finais}
+\frame{
+\frametitle{Comentários finais}
 
-    }
 
-    % =================== Bibliografia ==================== %
-    \appendix
-    \section*{\appendixname}
+}
+
+% =================== Bibliografia ==================== %
+\appendix
+\section*{\appendixname}
     \subsection*{Referências}
 
     \begin{frame}[allowframebreaks]
