@@ -109,8 +109,9 @@ $2^{o(k)n^{O(1)}}$.
     \item while $E \ne \emptyset$
     \begin{enumerate}
         \item Escolha $e = (a,b) \in E$ aribitrariamente.
-        \item $C = C \cup {a,b}$
-        \item $E \rightarrow E \backslash \{e \in E : a \mbox{ ou } b \in E\}$
+        \item $C = C \cup \{a,b\}$
+        \item $E \rightarrow E \backslash \{e \in E : a \mbox{ ou } b
+        \in e\}$
     \end{enumerate}
 \end{enumerate}
 \end{block}
@@ -143,8 +144,8 @@ $2^{o(k)n^{O(1)}}$.
     \item while $E \ne \emptyset$
     \begin{enumerate}
         \item Seja $v \in G : d[v] \ge d[u], \forall u \in V$
-        \item $C = C \cup {v}$
-        \item $E \rightarrow E \backslash \{e \in E : v \in E\}$
+        \item $C = C \cup \{v\}$
+        \item $E \rightarrow E \backslash \{e \in E : v \in e\}$
     \end{enumerate}
 \end{enumerate}
 \end{block}
@@ -189,6 +190,89 @@ então existe uma CMV $C$ tal que $v \in C$.
 \label{fig:principio}
 \end{figure}
 }
+
+
+\subsection{Pseudo-algoritmo}
+\frame{
+\frametitle{Pseudo-algoritmo}
+\begin{block}{heuristica($G$)}
+\begin{enumerate}
+    \item $C \rightarrow \emptyset$
+    \item while $E \ne \emptyset$
+    \begin{enumerate}
+        \item Se existe $u \in V : d[u] = 1$, faça $chosen = v :
+            e=(u,v) \in E$.
+        \item Senão, seja $v \in G : d[v] \ge d[u], \forall u \in V$.
+        Faça $chosen = v$.
+        \item $C = C \cup \{chosen\}$
+        \item $E \rightarrow E \backslash \{e \in E : chosen \in e\}$
+    \end{enumerate}
+\end{enumerate}
+\end{block}
+
+\begin{itemize}
+    \item Executa em $O(VE)$.
+    \item O passo no item 2.2 é uma escolha gulosa, e
+    passível de ser adaptada para alguma estratégia mais elaborada.
+\end{itemize}
+}
+
+
+\subsection{Execução passo a passo}
+\subsubsection{Exemplo 1}
+\frame[allowframebreaks]{
+\frametitle{Passo}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.5\textwidth]{../doc/img/exemplo1/passo1.png}
+\caption{$C=\emptyset$}
+\label{fig:exemplo1-passo1}
+\end{figure}
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.5\textwidth]{../doc/img/exemplo1/passo2.png}
+\caption{$C=\{A\}$}
+\label{fig:exemplo1-passo2}
+\end{figure}
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.5\textwidth]{../doc/img/exemplo1/passo3.png}
+\caption{$C=\{A, E\}$}
+\label{fig:exemplo1-passo3}
+\end{figure}
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.5\textwidth]{../doc/img/exemplo1/passo4.png}
+\caption{$C=\{A, E, F\}$}
+\label{fig:exemplo1-passo4}
+\end{figure}
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.5\textwidth]{../doc/img/exemplo1/passo5.png}
+\caption{$C=\{A, E, F, G\}$}
+\label{fig:exemplo1-passo5}
+\end{figure}
+}
+
+\frame{
+\frametitle{Resposta final}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.5\textwidth]{../doc/img/exemplo1/final.png}
+\caption{Resposta final}
+\label{fig:exemplo1-final}
+\end{figure}
+}
+
 
     
     \section{Comentários finais}
