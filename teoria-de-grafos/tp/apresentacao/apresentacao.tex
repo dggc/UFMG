@@ -110,7 +110,7 @@ $2^{o(k)n^{O(1)}}$.
     \begin{enumerate}
         \item Escolha $e = (a,b) \in E$ arbitrariamente.
         \item $C = C \cup \{a,b\}$
-        \item $E \rightarrow E \backslash \{e \in E : a \mbox{ ou } b
+        \item $E \rightarrow E \backslash \{e \in E \mid a \mbox{ ou } b
         \in e\}$
     \end{enumerate}
 \end{enumerate}
@@ -144,9 +144,9 @@ $2^{o(k)n^{O(1)}}$.
     \item $C \rightarrow \emptyset$
     \item while $E \ne \emptyset$
     \begin{enumerate}
-        \item Seja $v \in G : d[v] \ge d[u], \forall u \in V$
+        \item Seja $v \in G \mid d[v] \ge d[u], \forall u \in V$
         \item $C = C \cup \{v\}$
-        \item $E \rightarrow E \backslash \{e \in E : v \in e\}$
+        \item $E \rightarrow E \backslash \{e \in E \mid v \in e\}$
     \end{enumerate}
 \end{enumerate}
 \end{block}
@@ -201,12 +201,13 @@ então existe uma CMV $C$ tal que $v \in C$.
     \item $C \rightarrow \emptyset$
     \item while $E \ne \emptyset$
     \begin{enumerate}
-        \item Se existe $u \in V : d[u] = 1$, faça $chosen = v :
+        \item Se existe $u \in V \mid d[u] = 1$, faça $chosen = v
+            \mid
             e=(u,v) \in E$.
-        \item Senão, seja $v \in G : d[v] \ge d[u], \forall u \in V$.
+        \item Senão, seja $v \in G \mid d[v] \ge d[u], \forall u \in V$.
         Faça $chosen = v$.
         \item $C = C \cup \{chosen\}$
-        \item $E \rightarrow E \backslash \{e \in E : chosen \in e\}$
+        \item $E \rightarrow E \backslash \{e \in E \mid chosen \in e\}$
     \end{enumerate}
 \end{enumerate}
 \end{block}
@@ -215,6 +216,21 @@ então existe uma CMV $C$ tal que $v \in C$.
     \item Executa em $O(VE)$.
     \item O passo no item 2.2 é uma escolha gulosa, e
     passível de ser adaptada para alguma estratégia mais elaborada.
+\end{itemize}
+}
+
+\subsection{Prova de correção}
+\frame{
+\frametitle{Prova de correção}
+\begin{itemize}
+    \item Vértices são adicionados à CV enquanto existirem arestas no
+        grafo, ou seja, enquanto $\exists v \in V \mid d[v] > 0$.
+    \item A cada passo, ou um vértice $v \mid d[v] = 1$ é adicionado à
+    CV, ou o vértice $u \in V \mid d[u] \ge d[v] \forall v \in V$. Como
+    ainda existem arestas no grafo, com certeza $d[u] > 0$.
+    \item Assim que não existirem mais arestas no grafo, isto indica
+    que os vértices adicionados à CV cobrem todas as arestas do grafo,
+        e que ela de fato é uma cobertura por vértices.
 \end{itemize}
 }
 
@@ -363,9 +379,9 @@ Serão realizados dois tipos de experimentos para validar o algoritmo:
         grafos aleatórios com número determinado de vértices e
         arestas.
 
-    \item Foram executados alguns testes em uma máquina Linux, com
-        processador Intel Core 2 Duo T8100, de 2.10GHz e 3GB de
-        memória principal.
+    \item Foram executados alguns testes em uma máquina com sistema
+    operacional Linux 64 bits, com processador Intel Core 2 Duo T8100,
+                de 2.10GHz e 3GB de memória principal.
 
     \item Qual a melhor estratégia para definir o tamanho dos grafos
     de testes em termos de vértices e arestas?
