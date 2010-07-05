@@ -4,6 +4,7 @@
 #include<vector>
 #include<list>
 #include<cstdlib>
+#include<ctime>
 
 
 #include <boost/config.hpp>
@@ -144,6 +145,12 @@ int main(int argc, char** argv)
     boost::write_graphviz(outputGraphFile, *graph);
     outputGraphFile.close();
 
+    clock_t start, finish;
+    start = clock();
+
+    //Copiando
+    UGraph bk = *graph;
+
     //Enquanto existirem arestas...
     while(edges > 0)
     {
@@ -205,15 +212,19 @@ int main(int argc, char** argv)
     sort(mvc.begin(), mvc.end());
 
     //Imprimindo o resultado
-    cout << "1. Vertex Cover(" << mvc.size() << "):";
+    //cout << "1. Vertex Cover(" << mvc.size() << "):";
     for(uint32 i=0; i<mvc.size(); ++i)
     {
-        cout << " " << (mvc[i]+1);
+        //cout << " " << (mvc[i]+1);
     }
-    cout << endl;
+    //cout << endl;
 
 
     delete graph;
+
+    finish = clock();
+
+    cout << ( (double)(finish - start)/CLOCKS_PER_SEC ) << endl;
     inputFile.close();
     log.close();
 

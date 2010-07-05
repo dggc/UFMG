@@ -5,6 +5,7 @@ import re
 
 fName = 'lala.txt'
 f = open(fName, 'r')
+out = open(sys.argv[1],'w')
 max = 0
 for line in f:
     words = line.split()
@@ -37,11 +38,14 @@ for line in f:
     matrix[a][b] = 1
     matrix[b][a] = 1
 
-print max
+out.write(str(max))
+out.write('\n')
 for row in matrix:
     line = ''
     for cell in row:
         line += str(cell)
         line += ' '
-    print line
+    out.write(line)
+    out.write('\n')
+out.close()
 f.close()
