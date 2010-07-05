@@ -3,6 +3,15 @@
 %LOCK: GUEDES
 %TODO: que mais tem que falar?
 
-No melhor caso, o algoritmo sempre avalia a linha ~{ref:item-alone} como verdadeira, i.e., sempre existe um vértice de grau 1 cujo adjacente pode ser retirado do grafo com sucesso.
+No melhor caso, o algoritmo sempre avalia a linha~\ref{ref:item-alone}
+como verdadeira, i.e., sempre existe um vértice de grau 1 cujo
+adjacente pode ser retirado do grafo com sucesso.
 
-Entretanto, na maioria dos casos isto não acontece. Neste caso, a decisão tomada foi de retirar um dos vértices de maior grau. A razão para esta decisão é que, retirando este vértice do grafo, retira-se o maior número de arestas de uma só vez. Como o problema é resolvido quando o número de arestas do grafo $G'$ é igual a zero, isto significa que o problema está o mais próximo possível de uma solução.
+Entretanto, na maioria dos casos isto não acontece. Neste caso, a
+decisão tomada foi de retirar um dos vértices de maior grau. A razão
+para esta decisão é que, retirando este vértice do grafo, retira-se o
+maior número de arestas de uma só vez. Como o problema é resolvido
+quando o número de arestas do grafo $G'$ é igual a zero, isto
+significa que o problema está o mais próximo possível de uma solução,
+ainda que esta não seja garantidamente uma escolha que faça parte de
+uma solução ótima.
