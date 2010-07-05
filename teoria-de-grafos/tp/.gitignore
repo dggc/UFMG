@@ -3,3 +3,5 @@ bin/*
 doc
 apresentacao
 *.pyc
+input-efficiency
+scripts
